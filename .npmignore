@@ -1,4 +1,7 @@
-test
+/test
 .DS_Store
-eslint.json
+.eslintrc
 .travis.yml
+.coveralls.yml
+*.sublime-project
+*.sublime-workspace

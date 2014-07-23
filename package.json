@@ -1,6 +1,6 @@
 {
   "name": "or-set",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Markus Ast <npm.m@rkusa.st>",
   "description": "Op-based Observed-Remove Set (OR-Set), a Conflict-free Replicated Data Type (CRDT)",
   "keywords": [
@@ -8,15 +8,18 @@
     "set"
   ],
   "main": "lib/",
-  "directories": {
-    "test": "test"
+  "dependencies": {
+    "node-uuid": "^1.4.1"
   },
   "devDependencies": {
     "chai": "^1.9.1",
     "eslint": "^0.6.2",
     "gulp": "^3.8.5",
+    "gulp-coveralls": "^0.1.2",
     "gulp-eslint": "^0.1.7",
-    "gulp-mocha": "^0.4.1"
+    "gulp-istanbul": "^0.2.1",
+    "gulp-mocha": "^0.4.1",
+    "observe-shim": "^0.4.1"
   },
   "scripts": {
     "test": "gulp"
@@ -29,8 +32,5 @@
     "type": "git",
     "url": "git@github.com:rkusa/or-set.git"
   },
-  "license": "MIT",
-  "dependencies": {
-    "node-uuid": "^1.4.1"
-  }
+  "license": "MIT"
 }
