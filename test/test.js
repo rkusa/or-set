@@ -231,3 +231,49 @@ suite('Object.observe', function() {
     Object.deliverChangeRecords(observer)
   })
 })
+
+suite('typed', function() {
+  var Type = function(val) {
+    this.val = val
+  }
+
+  test('initialization with untyped values', function() {
+    var Typed = OrSet.typed(Type)
+    var s = new Typed(['a', 'b'])
+
+    expect(s.size).to.equal(2)
+    expect(s._elements[0]).to.be.an.instanceOf(Type)
+    expect(s._elements[0]).to.have.property('val', 'a')
+    expect(s._elements[1]).to.be.an.instanceOf(Type)
+    expect(s._elements[1]).to.have.property('val', 'b')
+  })
+
+  test('initialization with typed values', function() {
+    var Typed = OrSet.typed(Type)
+    var a = new Type('a')
+    var b = new Type('b')
+    var s = new Typed([a, b])
+
+    expect(s.size).to.equal(2)
+    expect(s._elements[0]).to.equal(a)
+    expect(s._elements[1]).to.equal(b)
+  })
+
+  test('local .add()', function() {
+    var Typed = OrSet.typed(Type)
+    var s = new Typed
+    s.add('a')
+
+    expect(s._elements[0]).to.be.an.instanceOf(Type)
+    expect(s._elements[0]).to.have.property('val', 'a')
+  })
+
+  test('downstream .add()', function() {
+    var Typed = OrSet.typed(Type)
+    var s = new Typed
+    s.add('a', uuid.v4())
+
+    expect(s._elements[0]).to.be.an.instanceOf(Type)
+    expect(s._elements[0]).to.have.property('val', 'a')
+  })
+})

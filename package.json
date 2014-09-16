@@ -1,6 +1,6 @@
 {
   "name": "or-set",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Markus Ast <npm.m@rkusa.st>",
   "description": "Op-based Observed-Remove Set (OR-Set), a Conflict-free Replicated Data Type (CRDT)",
   "keywords": [
@@ -22,7 +22,8 @@
     "observe-shim": "^0.4.1"
   },
   "scripts": {
-    "test": "gulp"
+    "test": "gulp",
+    "coveralls": "gulp coveralls"
   },
   "bugs": {
     "url": "https://github.com/rkusa/or-set/issues"
